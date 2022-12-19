@@ -88,4 +88,18 @@ public class LinkedList {
         return size;
     }
 
+    public void reverse() {
+        if (head == null) return;
+        var previous = head;
+        var current = head.next;
+        while (current != null) {
+            var next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        tail = head;
+        tail.next = null;
+        head = previous;
+    }
 }
